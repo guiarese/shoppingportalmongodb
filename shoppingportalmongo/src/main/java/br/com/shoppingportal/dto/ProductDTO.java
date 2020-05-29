@@ -2,6 +2,8 @@ package br.com.shoppingportal.dto;
 
 import java.math.BigDecimal;
 
+import br.com.shoppingportal.documents.Product;
+
 public class ProductDTO {
 	
 	private String name;
@@ -10,6 +12,12 @@ public class ProductDTO {
 	
 	public ProductDTO() {
 		
+	}
+	
+	public ProductDTO(Product product) {
+		this.name = product.getName();
+		this.amount = product.getAmount();
+		this.price = product.getPrice();
 	}
 	
 	public String getName() {
