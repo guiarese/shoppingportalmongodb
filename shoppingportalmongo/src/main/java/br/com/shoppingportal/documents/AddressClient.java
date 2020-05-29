@@ -3,6 +3,8 @@ package br.com.shoppingportal.documents;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import br.com.shoppingportal.dto.AddressClientDTO;
+
 @Document
 public class AddressClient {
 	
@@ -19,6 +21,17 @@ public class AddressClient {
 	
 	public AddressClient() {
 		
+	}
+	
+	public AddressClient(AddressClientDTO addressClientDTO) {
+		this.address = addressClientDTO.getAddress();
+		this.numberaddress = addressClientDTO.getNumberaddress();
+		this.reference = addressClientDTO.getReference();
+		this.district = addressClientDTO.getDistrict();
+		this.postalcode = addressClientDTO.getPostalcode();
+		this.city = addressClientDTO.getCity();
+		this.stateabbreviation = addressClientDTO.getStateabbreviation();
+		this.idclient = addressClientDTO.getIdclient();
 	}
 
 	public String getIdaddress() {
