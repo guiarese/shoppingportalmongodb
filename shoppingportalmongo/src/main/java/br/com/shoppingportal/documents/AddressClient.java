@@ -17,7 +17,6 @@ public class AddressClient {
 	private String postalcode;
 	private String city;
 	private String stateabbreviation;
-	private String idclient;
 	
 	public AddressClient() {
 		
@@ -31,7 +30,6 @@ public class AddressClient {
 		this.postalcode = addressClientDTO.getPostalcode();
 		this.city = addressClientDTO.getCity();
 		this.stateabbreviation = addressClientDTO.getStateabbreviation();
-		this.idclient = addressClientDTO.getIdclient();
 	}
 
 	public String getIdaddress() {
@@ -96,14 +94,6 @@ public class AddressClient {
 
 	public void setStateabbreviation(String stateabbreviation) {
 		this.stateabbreviation = stateabbreviation;
-	}
-
-	public String getIdclient() {
-		return idclient;
-	}
-
-	public void setIdclient(String idclient) {
-		this.idclient = idclient;
 	}
 
 }

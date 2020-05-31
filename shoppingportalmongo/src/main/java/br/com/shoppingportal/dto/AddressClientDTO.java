@@ -9,7 +9,6 @@ public class AddressClientDTO {
 	private String postalcode;
 	private String city;
 	private String stateabbreviation;
-	private String idclient;
 	
 	public AddressClientDTO() {
 		
@@ -69,14 +68,6 @@ public class AddressClientDTO {
 
 	public void setStateabbreviation(String stateabbreviation) {
 		this.stateabbreviation = stateabbreviation;
-	}
-
-	public String getIdclient() {
-		return idclient;
-	}
-
-	public void setIdclient(String idclient) {
-		this.idclient = idclient;
 	}
 
 }

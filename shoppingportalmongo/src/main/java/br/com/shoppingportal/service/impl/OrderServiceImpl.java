@@ -8,15 +8,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import br.com.shoppingportal.documents.AddressClient;
 import br.com.shoppingportal.documents.Client;
 import br.com.shoppingportal.documents.Order;
 import br.com.shoppingportal.documents.Product;
-import br.com.shoppingportal.documents.ProductBuy;
 import br.com.shoppingportal.dto.OrderDTO;
+import br.com.shoppingportal.dto.ProductBuyDTO;
 import br.com.shoppingportal.dto.ProductDTO;
 import br.com.shoppingportal.repository.OrderRepository;
-import br.com.shoppingportal.service.AddressClientService;
 import br.com.shoppingportal.service.ClientService;
 import br.com.shoppingportal.service.OrderService;
 import br.com.shoppingportal.service.ProductService;
@@ -29,9 +27,6 @@ public class OrderServiceImpl implements OrderService {
 	
 	@Autowired
 	private ClientService clientService;
-	
-	@Autowired
-	private AddressClientService addressClientService;
 	
 	@Autowired
 	private ProductService productService;
@@ -54,12 +49,13 @@ public class OrderServiceImpl implements OrderService {
 		Client client = new Client();
 		client = clientService.findById(order.getIdclient());
 		
-		AddressClient address = new AddressClient();
-		address = addressClientService.findById(order.getIdaddress());
+		if (client.getListIdAddress().contains(orderDTO.getIdaddress()) == false) {
+			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "O cliente não contém esse endereço");
+		}
 		
 		BigDecimal sumValues = new BigDecimal(0);
 		
-		for (ProductBuy w : order.getProducts()) {
+		for (ProductBuyDTO w : order.getProducts()) {
 			
 			Product product = new Product();
 			product = productService.findById(w.getIdproduct());

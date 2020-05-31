@@ -9,6 +9,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import br.com.shoppingportal.dto.OrderDTO;
+import br.com.shoppingportal.dto.ProductBuyDTO;
 
 @Document
 public class Order {
@@ -18,7 +19,7 @@ public class Order {
 	private String idclient;
 	private String idaddress;
 	private Date orderdate;
-	private Set<ProductBuy> products = new HashSet<>();
+	private Set<ProductBuyDTO> products = new HashSet<>();
 	private BigDecimal value;
 	
 	public Order() {
@@ -64,11 +65,11 @@ public class Order {
 		this.orderdate = orderdate;
 	}
 
-	public Set<ProductBuy> getProducts() {
+	public Set<ProductBuyDTO> getProducts() {
 		return products;
 	}
 
-	public void setProducts(Set<ProductBuy> products) {
+	public void setProducts(Set<ProductBuyDTO> products) {
 		this.products = products;
 	}
 

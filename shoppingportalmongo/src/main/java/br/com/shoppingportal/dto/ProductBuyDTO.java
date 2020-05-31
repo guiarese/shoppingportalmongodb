@@ -1,11 +1,11 @@
-package br.com.shoppingportal.documents;
+package br.com.shoppingportal.dto;
 
-public class ProductBuy {
+public class ProductBuyDTO {
 	
 	private String idproduct;
 	private int amount;
 	
-	public ProductBuy() {
+	public ProductBuyDTO() {
 		
 	}
 	

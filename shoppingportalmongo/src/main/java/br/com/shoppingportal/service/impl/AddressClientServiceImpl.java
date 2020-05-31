@@ -8,20 +8,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import br.com.shoppingportal.documents.AddressClient;
-import br.com.shoppingportal.documents.Client;
 import br.com.shoppingportal.dto.AddressClientDTO;
 import br.com.shoppingportal.repository.AddressClientRepository;
 import br.com.shoppingportal.service.AddressClientService;
-import br.com.shoppingportal.service.ClientService;
 
 @Service
 public class AddressClientServiceImpl implements AddressClientService {
 	
 	@Autowired
 	private AddressClientRepository addressClientRepository;
-	
-	@Autowired
-	private ClientService clientService;
 
 	@Override
 	public List<AddressClient> listAll() {
@@ -35,16 +30,12 @@ public class AddressClientServiceImpl implements AddressClientService {
 
 	@Override
 	public AddressClient create(AddressClientDTO addressClientDTO) {
-		Client client = new Client();
-		client = clientService.findById(addressClientDTO.getIdclient());
 		AddressClient address = new AddressClient(addressClientDTO);
 		return this.addressClientRepository.save(address);
 	}
 
 	@Override
 	public AddressClient update(String idaddress, AddressClientDTO addressClientDTO) {
-		Client client = new Client();
-		client = clientService.findById(addressClientDTO.getIdclient());
 		AddressClient address = new AddressClient();
 		address = findById(idaddress);
 		address.setAddress(addressClientDTO.getAddress());

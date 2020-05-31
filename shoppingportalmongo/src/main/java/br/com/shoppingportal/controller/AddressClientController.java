@@ -33,19 +33,21 @@ public class AddressClientController {
 		return addressClientService.findById(idaddress);
 	}
 	
-	@PostMapping
+	// O endereço só será criado no create client
+	/*@PostMapping
 	public AddressClient create(@RequestBody AddressClientDTO addressClientDTO){
 		return addressClientService.create(addressClientDTO);
-	}
+	}*/
 	
 	@PutMapping("/{idaddress}")
 	public AddressClient update(@PathVariable(name = "idaddress") String idaddress, @RequestBody AddressClientDTO addressClientDTO){
 		return addressClientService.update(idaddress, addressClientDTO);
 	}
 	
-	@DeleteMapping("/{idaddress}")
+	// O endereço só será deletado no delete client
+	/*@DeleteMapping("/{idaddress}")
 	public void delete(@PathVariable(name = "idaddress") String idaddress){
 		addressClientService.remove(idaddress);
-	}
+	}*/
 	
 }

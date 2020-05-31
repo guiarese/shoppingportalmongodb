@@ -1,6 +1,8 @@
 package br.com.shoppingportal.dto;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ClientDTO {
 	
@@ -8,6 +10,7 @@ public class ClientDTO {
 	private String cpf;
 	private String phonenumber;
 	private Date birthdate;
+	private Set<AddressClientDTO> listAddress = new HashSet<>();
 	
 	public ClientDTO() {
 		
@@ -43,6 +46,14 @@ public class ClientDTO {
 
 	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
+	}
+
+	public Set<AddressClientDTO> getListAddress() {
+		return listAddress;
+	}
+
+	public void setListAddress(Set<AddressClientDTO> listAddress) {
+		this.listAddress = listAddress;
 	}
 
 }

@@ -1,7 +1,8 @@
 package br.com.shoppingportal.documents;
 
 import java.util.Date;
-
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -17,6 +18,7 @@ public class Client {
 	private String cpf;
 	private String phonenumber;
 	private Date birthdate;
+	private Set<String> listIdAddress = new HashSet<>();
 	
 	public Client() {
 		
@@ -67,6 +69,14 @@ public class Client {
 
 	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
+	}
+
+	public Set<String> getListIdAddress() {
+		return listIdAddress;
+	}
+
+	public void setListIdAddress(Set<String> listAddress) {
+		this.listIdAddress = listAddress;
 	}
 
 }
